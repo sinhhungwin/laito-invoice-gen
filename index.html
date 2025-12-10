@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Laito Optical - Invoice PDF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="page">
+  <h1>Laito Optical – Invoice Maker</h1>
+
+  <div class="layout">
+    <!-- LEFT: FORM -->
+    <div class="card">
+      <h2>Invoice information</h2>
+      <form id="invoice-form">
+        <label for="customer-name">Customer name *</label>
+        <input type="text" id="customer-name" required placeholder="Full name" />
+
+        <div class="row">
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" placeholder="+84 ..." />
+          </div>
+          <div>
+            <label for="datetime">Date &amp; time</label>
+            <input type="datetime-local" id="datetime" />
+          </div>
+        </div>
+
+        <label for="address">Address (optional)</label>
+        <input type="text" id="address" placeholder="Hotel / home address" />
+
+        <label for="prescription">Spectacles prescription (optional)</label>
+        <textarea id="prescription" placeholder="OD: ...&#10;OS: ..."></textarea>
+
+        <h3 class="section-subtitle">Order items</h3>
+        <table class="items-table" id="items-table">
+          <thead>
+          <tr>
+            <th style="width: 70%;">Description</th>
+            <th style="width: 30%;">Price</th>
+          </tr>
+          </thead>
+          <tbody id="items-body">
+          <tr class="item-row">
+            <td><input type="text" class="item-desc" placeholder="Frame + lenses" /></td>
+            <td><input type="text" class="item-price" placeholder="3,000,000 VND" /></td>
+          </tr>
+          <tr class="item-row">
+            <td><input type="text" class="item-desc" /></td>
+            <td><input type="text" class="item-price" /></td>
+          </tr>
+          <tr class="item-row">
+            <td><input type="text" class="item-desc" /></td>
+            <td><input type="text" class="item-price" /></td>
+          </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn secondary" id="add-item-btn">+ Add line</button>
+
+        <div class="row row-top">
+          <div>
+            <label for="discount">Discount (optional)</label>
+            <input type="text" id="discount" placeholder="e.g. 10% or 200,000 VND" />
+          </div>
+          <div>
+            <label for="total">Total</label>
+            <input type="text" id="total" placeholder="Sum after discount" />
+          </div>
+        </div>
+
+        <label for="note">Note (optional)</label>
+        <textarea id="note" placeholder="Care instructions, pickup time, etc."></textarea>
+      </form>
+    </div>
+
+    <!-- RIGHT: PREVIEW + PDF -->
+    <div class="card">
+      <div class="preview-actions">
+        <button class="btn secondary" id="update-preview-btn">Update preview</button>
+        <button class="btn" id="generate-pdf-btn">Generate PDF</button>
+      </div>
+      <div id="invoice-preview">
+        <!-- JS will render preview here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- html2pdf CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" defer></script>
+<!-- App logic -->
+<script src="script.js" defer></script>
+</body>
+</html>
