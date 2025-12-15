@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     previewDiv.innerHTML = `
       <div class="inv-header">
         <h1>Laito Optical</h1>
-        <div class="sub">Spectacles Order / Invoice</div>
+        <div class="sub">Spectacles Order / Receipt</div>
       </div>
 
       <div class="inv-section-title">Customer information</div>
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const opt = {
       margin: 10,
-      filename: `Laito_Invoice_${name}.pdf`,
+      filename: `Laito_Receipt_${name}.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
